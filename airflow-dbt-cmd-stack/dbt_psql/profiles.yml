@@ -1,0 +1,27 @@
+dbt_psql:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      # todo: Update the credentials (should use env vars as below)
+      # todo: For local development, change host into "localhost" to access postgres in docker compose
+      # todo: For airflow pipeline, change host into "postgres" to access postgres in docker compose between services
+      host: "postgres"
+      user: "admin"
+      password: "admin123"
+      port: 5432
+      dbname: postgres # or database instead of dbname
+      schema: public
+      threads: 2
+      connect_timeout: 10 # default 10 seconds
+
+    prod:
+      type: postgres
+      host: "{{ env_var('DATA_WAREHOUSE_POSTGRES_HOST') }}"
+      user: "{{ env_var('DATA_WAREHOUSE_POSTGRES_USER') }}"
+      password: "{{ env_var('DATA_WAREHOUSE_POSTGRES_PASSWORD') }}"
+      port: 5432
+      dbname: postgres # or database instead of dbname
+      schema: public
+      threads: 2
+      connect_timeout: 10 # default 10 seconds

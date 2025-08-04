@@ -27,7 +27,7 @@ with DAG(
 
     hello_world = BashOperator(
         task_id='hello_world',
-        bash_command='echo "Hello, World!"',
+        bash_command='echo "Hello, World!, This is version 2"',
     )
 
     end = EmptyOperator(

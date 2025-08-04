@@ -1,0 +1,15 @@
+/venv
+zookeeper
+.env
+#*/test
+postgres-data
+**/logs
+dags/test.py
+**/data
+
+
+### Py charm ###
+**/.DS_Store
+.idea
+#migrations/test/
+/.venv
