@@ -6,9 +6,9 @@ dbt_psql:
       # todo: Update the credentials (should use env vars as below)
       # todo: For local development, change host into "localhost" to access postgres in docker compose
       # todo: For airflow pipeline, change host into "postgres" to access postgres in docker compose between services
-      host: "postgres"
-      user: "admin"
-      password: "admin123"
+      host: "{{ env_var('DATA_WAREHOUSE_DEV_HOST', 'localhost') }}"
+      user: "{{ env_var('DATA_WAREHOUSE_DEV_USER', 'admin') }}"
+      password: "{{ env_var('DATA_WAREHOUSE_DEV_PASSWORD', 'admin123') }}"
       port: 5432
       dbname: postgres # or database instead of dbname
       schema: public
